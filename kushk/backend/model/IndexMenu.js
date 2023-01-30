@@ -1,4 +1,4 @@
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const config = require('../config/config.json')['development'];
 
 const db = {};
@@ -25,3 +25,5 @@ db.Sequelize = Sequelize;
 db.Menu = require('./Menu')(sequelize, Sequelize);
 // 첫번째 인자는 정의된 모델을 받는 인자
 // 두번쨰 인자는 DataType 형태 받는 인자
+
+module.exports = db;

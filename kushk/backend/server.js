@@ -3,18 +3,21 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-const PORT = 8080;
+const PORT = 3001;
 
 //미들웨어로 cors 어떤 주소에서 요청을 보내도 에러가 뜨지 않는다.
 app.use(cors());
-
-const router = require('./routes/index');
-app.use('/', router);
 
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').__express);
 
 app.use(express.static(path.join(__dirname, '../build')));
+// post 데이터 인식
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+const router = require('./routes/index');
+app.use('/', router);
 
 app.get('*', (req, res) => {
   // res.send("주소가 존재하지 않습니다. 다시 한 번 확인해주세요.");
