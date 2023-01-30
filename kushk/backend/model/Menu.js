@@ -1,6 +1,6 @@
 const Menu = (Sequelize, DataTypes) => {
   return Sequelize.define(
-    'kushk',
+    'menu',
     {
       menu_id: {
         type: DataTypes.STRING(15),
@@ -12,8 +12,11 @@ const Menu = (Sequelize, DataTypes) => {
         allowNull: false,
       },
       menu_price: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(15),
         allowNull: false,
+      },
+      menu_img: {
+        type: DataTypes.STRING(50),
       },
     },
     {
