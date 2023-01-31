@@ -1,16 +1,21 @@
-// import React, { useState } from 'react';
 import { useRef } from 'react';
 import axios from 'axios';
-import MenuList from './MenuList';
+import styled from 'styled-components';
 
-export default function Admin() {
+const StyledTable = styled.table`
+  border: solid 2px blue;
+`;
+const StyledTd = styled.td`
+  border: solid 1px blue;
+  background-color: #dfdfdf;
+`;
+
+export default function Admin({ menuList }) {
   const Mindex = useRef();
   const Mid = useRef();
   const Mprice = useRef();
-  const Mimg = useRef();
+  const Mtext = useRef();
   const form_info = useRef();
-
-  //  const [ selectMenu, setSelectMenu] = useState([]);
 
   // 메뉴 추가
   function addMenu() {
@@ -19,7 +24,7 @@ export default function Admin() {
         index: Mindex.current.value,
         id: Mid.current.value,
         price: Mprice.current.value,
-        img: Mimg.current.value,
+        text: Mtext.current.value,
       })
       .then((response) => {
         if (response.data === true) {
@@ -45,7 +50,7 @@ export default function Admin() {
           Mindex.current.value = response.data.menu_index;
           Mid.current.value = response.data.menu_id;
           Mprice.current.value = response.data.menu_price;
-          Mimg.current.value = response.data.menu_text;
+          Mtext.current.value = response.data.menu_text;
         }
       });
   }
@@ -58,7 +63,7 @@ export default function Admin() {
         index: Mindex.current.value,
         id: Mid.current.value,
         price: Mprice.current.value,
-        img: Mimg.current.value,
+        text: Mtext.current.value,
       })
       .then((response) => {
         if (response.data === true) {
@@ -91,12 +96,7 @@ export default function Admin() {
         <input ref={Mindex} name="index" type="text" placeholder="메뉴 품목" />
         <input ref={Mid} name="id" type="text" placeholder="메뉴 이름" />
         <input ref={Mprice} name="price" type="text" placeholder="메뉴 가격" />
-        <input
-          ref={Mimg}
-          name="img"
-          type="text"
-          placeholder="메뉴 이미지 경로"
-        />
+        <input ref={Mtext} name="text" type="text" placeholder="메뉴 설명" />
         <button
           type="button"
           onClick={() => {
@@ -131,7 +131,24 @@ export default function Admin() {
           메뉴 삭제
         </button>
       </form>
-      <MenuList />
+      <h3>DB MenuList</h3>
+      <StyledTable>
+        <tr>
+          <th>종류</th>
+          <th>상품명</th>
+          <th>가격</th>
+          <th>설명</th>
+        </tr>
+
+        {menuList.map((menu) => (
+          <tr>
+            <StyledTd>{menu.menu_index}</StyledTd>
+            <StyledTd>{menu.menu_id}</StyledTd>
+            <StyledTd>{menu.menu_price}</StyledTd>
+            <StyledTd>{menu.menu_text}</StyledTd>
+          </tr>
+        ))}
+      </StyledTable>
     </>
   );
 }

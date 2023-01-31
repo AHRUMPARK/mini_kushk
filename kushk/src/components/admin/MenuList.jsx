@@ -1,51 +1,41 @@
-import React from 'react'
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import styled from 'styled-components'
 
-const StyledTable = styled.table`
-  border: solid 2px blue;
-`
-const StyledTd = styled.td`
-  border: solid 1px blue;
-  background-color: #dfdfdf;
-`;
+import AvailableMenu from '../Menu/AvailableMenu';
+import Admin from './Admin';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// 메뉴 DB 조회 출력 컴포넌트 
 export default function MenuList() {
-    let [menuList, setMenuList] = useState([]);
-    
-    useEffect(() => {
-      axios.get('http://localhost:3001/getMenuList')
-      .then((response) => {
-        setMenuList(response.data)
-      })
-      .catch(err => console.log(err))
-      ;
-    }, []);
+  let [menuList, setMenuList] = useState([]);
 
-   const menuListArr = menuList.map((el, index) => {
-    return (
-      <tr key={index}>
-        <StyledTd>{el.menu_index}</StyledTd>
-        <StyledTd>{el.menu_id}</StyledTd>
-        <StyledTd>{el.menu_price}</StyledTd>
-        <StyledTd>{el.menu_img}</StyledTd>
-      </tr>
-    );
-   })
+  // 메뉴 DB 조회 출력 컴포넌트
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/getMenuList')
+      .then((response) => {
+        console.log('=====', response.data);
+        setMenuList(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
-      <h3>DB MenuList</h3>
-      <StyledTable>
-        <tr>
-          <th>종류</th>
-          <th>상품명</th>
-          <th>가격</th>
-          <th>이미지 경로</th>
-        </tr>
-        {menuListArr}
-      </StyledTable>
+      {/* DB 값이 담긴 menuList state를 객체로 데이터를 보냄 */}
+      {menuList.length !== 0 && (
+        <>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/admin" element={<Admin menuList={menuList} />} />
+              <Route
+                path="/*"
+                element={<AvailableMenu menuList={menuList} />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </>
+      )}
     </>
   );
 }

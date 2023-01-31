@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from "react"; //여기에서 장바구니 렌더링하기때문에 useState임포트.
-import Header from "./components/Layout/Header";
-import "./App.css";
-import Coffee from "./components/Menu/Coffee";
-import Cart from "./components/Cart/Cart";
-import CartProvider from "./store/CartProvider";
-import Admin from "./components/admin/Admin";
+import React, { useState } from 'react'; //여기에서 장바구니 렌더링하기때문에 useState임포트.
+import Header from './components/Layout/Header';
+import './App.css';
+import Coffee from './components/Menu/Coffee';
+import Cart from './components/Cart/Cart';
+import CartProvider from './store/CartProvider';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Admin from './components/admin/Admin';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -24,7 +25,6 @@ function App() {
       <main>
         <Coffee />
       </main>
-      <Admin />
     </CartProvider>
   );
 }
