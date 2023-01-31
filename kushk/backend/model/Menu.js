@@ -15,7 +15,7 @@ const Menu = (Sequelize, DataTypes) => {
         type: DataTypes.STRING(15),
         allowNull: false,
       },
-      menu_img: {
+      menu_text: {
         type: DataTypes.STRING(50),
       },
     },

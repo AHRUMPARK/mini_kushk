@@ -45,7 +45,7 @@ export default function Admin() {
           Mindex.current.value = response.data.menu_index;
           Mid.current.value = response.data.menu_id;
           Mprice.current.value = response.data.menu_price;
-          Mimg.current.value = response.data.menu_img;
+          Mimg.current.value = response.data.menu_text;
         }
       });
   }
