@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
-import Input from "../../UI/Input";
-import classes from "./MenuItemForm.module.css";
+import Input from '../../UI/Input';
+import classes from './MenuItemForm.module.css';
 
 const MenuItemForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
@@ -36,15 +36,15 @@ const MenuItemForm = (props) => {
         //ref를 통해 인풋에 접근가능
         label="수량"
         input={{
-          id: "amount",
-          type: "number",
-          min: "1",
-          max: "5",
-          step: "1",
-          defaultValue: "1",
+          id: 'amount',
+          type: 'number',
+          min: '1',
+          max: '5',
+          step: '1',
+          defaultValue: '1',
         }}
       />
-      <button>주문하기</button>
+      <button type="submit">주문하기</button>
       {!amountIsValid && <p>Please enter a valid amount (1-5).</p>}
     </form>
   );
