@@ -19,7 +19,7 @@ exports.addMenu = async (req, res) => {
     menu_id: req.body.id,
     menu_index: req.body.index,
     menu_price: req.body.price,
-    menu_img: req.body.img,
+    menu_text: req.body.img,
   };
   await Menu.create(data).then((result) => {
     res.send(true);
@@ -46,7 +46,7 @@ exports.menuUpdate = async (req, res) => {
     {
       menu_index: req.body.index,
       menu_price: req.body.price,
-      menu_img: req.body.img,
+      menu_text: req.body.img,
     },
     {
       where: { menu_id: req.body.id },
