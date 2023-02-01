@@ -1,15 +1,17 @@
-import { useContext } from "react";
-
-import Modal from "../UI/Modal";
-import CartItem from "./CartItem";
-import classes from "./Cart.module.css";
-import CartContext from "../../store/cart-context";
+import { useContext } from 'react';
+import Modal from '../UI/Modal';
+import CartItem from './CartItem';
+import classes from './Cart.module.css';
+import CartContext from '../../store/cart-context';
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-
+  //
   const totalAmount = `${cartCtx.totalAmount}`;
   const hasItems = cartCtx.items.length > 0;
+
+  console.log('cartCtx.totalAmount', cartCtx.totalAmount);
+  console.log('hasItems', hasItems);
 
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
@@ -20,7 +22,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={classes["cart-items"]}>
+    <ul className={classes['cart-items']}>
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -48,7 +50,7 @@ const Cart = (props) => {
         <span>{totalAmount}원</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={props.onClose}>
+        <button className={classes['button--alt']} onClick={props.onClose}>
           닫기
         </button>
         {hasItems && <button className={classes.button}>주문</button>}

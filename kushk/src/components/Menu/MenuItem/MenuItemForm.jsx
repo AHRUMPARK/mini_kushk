@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import Input from '../../UI/Input';
 import classes from './MenuItemForm.module.css';
 
+// MenuItemForm 주문
 const MenuItemForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
   const amountInputRef = useRef();
