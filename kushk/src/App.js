@@ -4,7 +4,6 @@ import './App.css';
 import Coffee from './components/Menu/Coffee';
 import Cart from './components/Cart/Cart';
 import CartProvider from './store/CartProvider';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
