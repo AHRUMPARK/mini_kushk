@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -20,7 +21,7 @@ export default function Admin({ menuList }) {
   // 메뉴 추가
   function addMenu() {
     axios
-      .post('http://localhost:3001/addMenu', {
+      .post('http://49.50.172.207:3001/addMenu', {
         index: Mindex.current.value,
         id: Mid.current.value,
         price: Mprice.current.value,
@@ -34,12 +35,13 @@ export default function Admin({ menuList }) {
         }
       });
   }
-
+  //'http://localhost:3001/selectMenu'
+  // 로컬 url > 서버 요청 url로 변경
   // 메뉴 조회
   function SelectMenu() {
     console.log('조회 요청');
     axios
-      .post('http://localhost:3001/selectMenu', {
+      .post('http://49.50.172.207:3001/selectMenu', {
         id: Mid.current.value,
       })
       .then((response) => {
@@ -59,7 +61,7 @@ export default function Admin({ menuList }) {
   function menuUpdate() {
     console.log('수정 요청');
     axios
-      .patch('http://localhost:3001/menuUpdate', {
+      .patch('http://49.50.172.207:3001/menuUpdate', {
         index: Mindex.current.value,
         id: Mid.current.value,
         price: Mprice.current.value,
@@ -77,7 +79,7 @@ export default function Admin({ menuList }) {
   function menuDelete() {
     console.log('삭제 요청');
     axios
-      .delete('http://localhost:3001/menuDelete', {
+      .delete('http://49.50.172.207:3001/menuDelete', {
         data: { id: Mid.current.value },
       })
       .then((response) => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import Card from '../UI/Card';
 import MenuItem from './MenuItem/MenuItem';
 import classes from './AvailableMenu.module.css';

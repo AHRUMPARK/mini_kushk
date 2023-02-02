@@ -8,9 +8,6 @@ const PORT = 3001;
 //미들웨어로 cors 어떤 주소에서 요청을 보내도 에러가 뜨지 않는다.
 app.use(cors());
 
-app.set('view engine', 'ejs');
-app.engine('ejs', require('ejs').__express);
-
 app.use(express.static(path.join(__dirname, '../build')));
 // post 데이터 인식
 app.use(express.urlencoded({ extended: true }));
@@ -22,7 +19,7 @@ app.use('/', router);
 app.get('*', (req, res) => {
   // res.send("주소가 존재하지 않습니다. 다시 한 번 확인해주세요.");
   if (res.status === 400) {
-    res.render('404');
+    res.send('없는 라우터입니다.');
   } else {
     res.sendFile(path.join(__dirname, '../build/index.html'));
   }

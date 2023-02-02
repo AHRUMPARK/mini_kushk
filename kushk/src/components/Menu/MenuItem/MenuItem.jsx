@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContext } from 'react';
 import MenuItemForm from './MenuItemForm';
 import classes from './MenuItem.module.css';
