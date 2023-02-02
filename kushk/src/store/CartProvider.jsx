@@ -5,6 +5,7 @@ const defaultCartState = {
   items: [],
   totalAmount: 0,
 };
+//초기값을 상수에 담아서 사용
 
 const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
@@ -83,6 +84,7 @@ const CartProvider = (props) => {
 
   const cartContext = {
     items: cartState.items,
+    //cartState.Items에 접근. 왜냐하면 item은 state로 totalAmount는 cartState.totalAmount로 관리하고 있기 때문
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
