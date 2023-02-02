@@ -1,4 +1,5 @@
-import classes from "./MenuSummary.module.css";
+import React from 'react';
+import classes from './MenuSummary.module.css';
 
 const MenuSummary = () => {
   return (

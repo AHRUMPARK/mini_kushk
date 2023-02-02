@@ -6,6 +6,7 @@ const db = {};
 // DB 연결
 const sequelize = new Sequelize(
   config.database,
+  // config.port,
   config.username,
   config.password,
   config

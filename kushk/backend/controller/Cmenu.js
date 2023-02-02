@@ -1,5 +1,11 @@
 const { Menu } = require('../model/IndexMenu');
 
+// //admin 페이지
+// exports.admin = (req, res) => {
+//   console.log('admin 접속');
+//   res.send('dsadsa');
+// };
+
 // 메뉴 불러오기
 exports.getMenuList = (req, res) => {
   console.log('메뉴 List 불러오기');

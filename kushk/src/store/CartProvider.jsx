@@ -1,3 +1,4 @@
+import React from 'react';
 import { useReducer } from 'react'; //state를 관리하기 위해 useReducer를 사용함
 import CartContext from './cart-context';
 
@@ -13,28 +14,32 @@ const cartReducer = (state, action) => {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
 
+    // item => 메뉴리스트의 주문하기 버튼이 눌린 해당 음료 데이터 > findIndex 로 중복된 name 데이터 조회
+    // 즉 중복 name 데이터의 수량만 변경하는 식
     const existingCartItemIndex = state.items.findIndex((item) => {
-      console.log('existingCartItemIndex에서 받는 item', item);
-      console.log('state.items', state.items);
-      console.log('item.id', item.id);
-      console.log('action.item.id', action.item.id);
-      // return item.id === action.item.id;
       return item.name === action.item.name;
     });
     const existingCartItem = state.items[existingCartItemIndex];
     let updatedItems;
 
-    console.log(existingCartItemIndex);
-    console.log('existingCartItem', existingCartItem);
-
+    // 수량 업데이트하는 부분 ( 위에서 중복값이 존재하면 밑의 식이 발동 )
+    // existingCartItem 기존 데이터 값(amout, id, name, price)
+    // updatedItem 기존데이터 복사, amount만 변경 => 기존수량(existingCartItem.amount) + input 수량(action.item.amount)
     if (existingCartItem) {
       const updatedItem = {
         ...existingCartItem,
         amount: existingCartItem.amount + action.item.amount,
       };
+
       updatedItems = [...state.items];
+      // 수량이 업데이트 됨
       updatedItems[existingCartItemIndex] = updatedItem;
+      console.log(
+        'updatedItems[existingCartItemIndex]',
+        updatedItems[existingCartItemIndex]
+      );
     } else {
+      console.log('action.item', action.item);
       updatedItems = state.items.concat(action.item);
       //concat은 새배열을 반환 즉, 얻게될 action.item을 반환
     }
@@ -73,6 +78,8 @@ const CartProvider = (props) => {
     cartReducer,
     defaultCartState
   );
+  console.log('defaultCartState', defaultCartState);
+  console.log('CartProvider', CartProvider);
 
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: 'ADD', item: item });

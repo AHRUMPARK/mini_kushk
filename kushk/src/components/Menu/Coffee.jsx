@@ -1,5 +1,5 @@
+import React from 'react';
 import MenuSummary from './MenuSummary';
-import AvailableMenu from './AvailableMenu';
 import { Fragment } from 'react';
 import MenuList from '../admin/MenuList';
 
