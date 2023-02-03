@@ -23,6 +23,7 @@ function App() {
       <main>
         <Coffee />
       </main>
+      {/* <Payment /> */}
     </CartProvider>
   );
 }
