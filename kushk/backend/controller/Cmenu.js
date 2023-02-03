@@ -1,4 +1,5 @@
 const { Menu } = require('../model/IndexMenu');
+const { Payment } = require('../model/IndexMenu');
 
 // //admin 페이지
 // exports.admin = (req, res) => {
@@ -72,3 +73,17 @@ exports.menuDelete = async (req, res) => {
     res.send(true);
   });
 };
+
+// 주문 번호 생성
+exports.merchant_uid = async (req, res) => {
+  console.log('보내3');
+  console.log('주문 번호 생성 요청 : ', req.body);
+  let data = { merchant_uid: req.body.merchant_uid };
+  await Payment.create(data).then((result) => {
+    res.send(result);
+  });
+};
+
+// exports.merchant_uid = async (req, res) => {
+//   const { imp_uid, merchant_uid } = req.body;
+// };
