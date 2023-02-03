@@ -1,17 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
-import Payment from '../admin/Payment';
+import PayRequest from './PayRequest';
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
+  console.log('Cart의 props', props);
 
   const totalAmount = `${cartCtx.totalAmount}`;
   const hasItems = cartCtx.items.length > 0;
 
-  console.log('cartCtx.totalAmount', cartCtx.totalAmount);
   console.log('hasItems', hasItems);
 
   const cartItemRemoveHandler = (id) => {
@@ -43,32 +43,29 @@ const Cart = (props) => {
     </ul>
   );
 
-  let [pay, setPay] = useState(false);
-
   return (
-    <Modal onClose={props.onClose}>
-      {cartItems}
-      <div className={classes.total}>
-        <span>총 주문금액</span>
-        <span>{totalAmount}원</span>
-      </div>
-      <div className={classes.actions}>
-        <button className={classes['button--alt']} onClick={props.onClose}>
-          닫기
-        </button>
-        {hasItems && (
-          <button
-            className={classes.button}
-            onClick={() => {
-              setPay(!pay) && <Payment />;
-            }}
-          >
-            주문
+    <>
+      <Modal onClose={props.onClose}>
+        {cartItems}
+        <div className={classes.total}>
+          <span>총 주문금액</span>
+          <span>{totalAmount}원</span>
+        </div>
+        <div className={classes.actions}>
+          {hasItems && (
+            // <button className={classes.button} onClick={() => {}}>
+            //   주문
+            // </button>
+            <PayRequest />
+          )}
+          <button className={classes['button--alt']} onClick={props.onClose}>
+            닫기
           </button>
-        )}
-        {/* 이주문버튼은 장바구니에 항목이 있는 경우에만 나타나도록 hasItem 만듦 */}
-      </div>
-    </Modal>
+
+          {/* 이주문버튼은 장바구니에 항목이 있는 경우에만 나타나도록 hasItem 만듦 */}
+        </div>
+      </Modal>
+    </>
   );
 };
 

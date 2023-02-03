@@ -78,8 +78,8 @@ const CartProvider = (props) => {
     cartReducer,
     defaultCartState
   );
-  console.log('defaultCartState', defaultCartState);
-  console.log('CartProvider', CartProvider);
+  // console.log('defaultCartState', defaultCartState);
+  // console.log('CartProvider', CartProvider);
 
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: 'ADD', item: item });
@@ -96,6 +96,9 @@ const CartProvider = (props) => {
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };
+
+  console.log('cartContext.items', cartContext.items);
+  console.log('cartContext.totalAmount', cartContext.totalAmount);
   return (
     <CartContext.Provider value={cartContext}>
       {props.children}

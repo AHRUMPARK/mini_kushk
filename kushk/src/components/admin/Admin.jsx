@@ -92,6 +92,9 @@ export default function Admin({ menuList }) {
   }
   return (
     <>
+      <br />
+      <br />
+      <br />
       <h3>관리자 페이지</h3>
       <p>사용 메뉴얼 : 메뉴 조회 후 수정, 삭제 가능 * 아이디는 수정 안됨 </p>
       <form ref={form_info}>
