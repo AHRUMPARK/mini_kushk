@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
+import Payment from '../admin/Payment';
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -42,64 +43,7 @@ const Cart = (props) => {
     </ul>
   );
 
-  //   useEffect(() => {
-  //     const jquery = document.createElement('script');
-  //     jquery.src = 'https://code.jquery.com/jquery-1.12.4.min.js';
-  //     const iamport = document.createElement('script');
-  //     iamport.src = 'https://cdn.iamport.kr/js/iamport.payment-1.1.7.js';
-  //     document.head.appendChild(jquery);
-  //     document.head.appendChild(iamport);
-  //     return () => {
-  //       document.head.removeChild(jquery);
-  //       document.head.removeChild(iamport);
-  //       console.log('eee스크립트 호출')
-  //     };
-  //   }, []);
-
-  // function RequestPay() {
-  //   /* 1. 가맹점 식별하기 */
-  //   const { IMP } = window;
-  //   IMP.init('imp33311443');
-
-  //   /* 2. 결제 데이터 정의하기 */
-  //   requestPay = () => {
-  //     // IMP.request_pay(param, callback) 결제창 호출
-  //     IMP.request_pay(
-  //       {
-  //         // param
-  //         pg: 'html5_inicis',
-  //         pay_method: 'card',
-  //         merchant_uid: `mid_${new Date().getTime()}`, // 주문 번호 받아와야함 merchant_uid     `mid_${new Date().getTime()}`
-  //         name: '결제 테스트', // 주문명
-  //         amount: 64900, // 결제 가격
-  //       },
-  //       (rsp) => {
-  //         // callback
-  //         if (rsp.success) {
-  //           // 결제 성공 시: 결제 승인
-  //           // jQuery로 HTTP 요청
-  //           jquery
-  //             .ajax({
-  //               url: '{서버의 결제 정보를 받는 endpoint}', // 예: https://www.myservice.com/payments/complete
-  //               method: 'POST',
-  //               headers: { 'Content-Type': 'application/json' },
-  //               data: {
-  //                 imp_uid: rsp.imp_uid,
-  //                 merchant_uid: rsp.merchant_uid,
-  //               },
-  //             })
-  //             .done(function (data) {
-  //               // 가맹점 서버 결제 API 성공시 로직
-  //               alert('결제 성공');
-  //             });
-  //         } else {
-  //           // 결제 실패 시 로직,
-  //           alert(`결제 실패: ${error_msg}`);
-  //         }
-  //       }
-  //     );
-  //   };
-  // }
+  let [pay, setPay] = useState(false);
 
   return (
     <Modal onClose={props.onClose}>
@@ -113,7 +57,12 @@ const Cart = (props) => {
           닫기
         </button>
         {hasItems && (
-          <button className={classes.button} onClick={() => {}}>
+          <button
+            className={classes.button}
+            onClick={() => {
+              setPay(!pay) && <Payment />;
+            }}
+          >
             주문
           </button>
         )}
