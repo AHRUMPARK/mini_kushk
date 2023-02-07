@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import CartContext from '../../store/cart-context';
 
 const Payment = (effect, deps) => {
   useEffect(() => {
@@ -13,8 +14,10 @@ const Payment = (effect, deps) => {
       document.head.removeChild(iamport);
     };
   }, []);
+  const cartCtx = useContext(CartContext);
 
   const onClickPayment = () => {
+    const totalAmount = `${cartCtx.totalAmount}`;
     const { IMP } = window;
     IMP.init('imp33311443'); // 결제 데이터 정의
     const data = {
@@ -22,7 +25,7 @@ const Payment = (effect, deps) => {
       pay_method: 'card', // 결제수단 (필수항목)
       merchant_uid: `mid_${new Date().getTime()}`, // 결제금액 (필수항목)
       name: '결제 테스트', // 주문명 (필수항목)
-      amount: '1000', // 금액 (필수항목)
+      amount: totalAmount, // 금액 (필수항목)
       custom_data: { name: '부가정보', desc: '세부 부가정보' },
     };
     IMP.request_pay(data, callback);
@@ -32,11 +35,11 @@ const Payment = (effect, deps) => {
     const {
       success,
       error_msg,
-      imp_uid,
-      merchant_uid,
-      pay_method,
-      paid_amount,
-      status,
+      // imp_uid,
+      // merchant_uid,
+      // pay_method,
+      // paid_amount,
+      // status,
     } = response;
     if (success) {
       alert('결제 성공');

@@ -3,7 +3,7 @@ import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
-import Payment from '../admin/Payment';
+import Payment from './Payment';
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -44,6 +44,7 @@ const Cart = (props) => {
   );
 
   let [pay, setPay] = useState(false);
+  console.log(pay);
 
   return (
     <Modal onClose={props.onClose}>
@@ -60,12 +61,13 @@ const Cart = (props) => {
           <button
             className={classes.button}
             onClick={() => {
-              setPay(!pay) && <Payment />;
+              setPay(!pay);
             }}
           >
             주문
           </button>
         )}
+        {pay && <Payment />}
         {/* 이주문버튼은 장바구니에 항목이 있는 경우에만 나타나도록 hasItem 만듦 */}
       </div>
     </Modal>

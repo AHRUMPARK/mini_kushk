@@ -17,11 +17,11 @@ export default function Admin({ menuList }) {
   const Mprice = useRef();
   const Mtext = useRef();
   const form_info = useRef();
-
+  //'http://49.50.172.207:3001/addMenu'
   // 메뉴 추가
   function addMenu() {
     axios
-      .post('http://49.50.172.207:3001/addMenu', {
+      .post('http://localhost:3001/addMenu', {
         index: Mindex.current.value,
         id: Mid.current.value,
         price: Mprice.current.value,
@@ -41,7 +41,7 @@ export default function Admin({ menuList }) {
   function SelectMenu() {
     console.log('조회 요청');
     axios
-      .post('http://49.50.172.207:3001/selectMenu', {
+      .post('http://localhost:3001/selectMenu', {
         id: Mid.current.value,
       })
       .then((response) => {
@@ -61,7 +61,7 @@ export default function Admin({ menuList }) {
   function menuUpdate() {
     console.log('수정 요청');
     axios
-      .patch('http://49.50.172.207:3001/menuUpdate', {
+      .patch('http://localhost:3001/menuUpdate', {
         index: Mindex.current.value,
         id: Mid.current.value,
         price: Mprice.current.value,
@@ -79,7 +79,7 @@ export default function Admin({ menuList }) {
   function menuDelete() {
     console.log('삭제 요청');
     axios
-      .delete('http://49.50.172.207:3001/menuDelete', {
+      .delete('http://localhost:3001/menuDelete', {
         data: { id: Mid.current.value },
       })
       .then((response) => {
@@ -92,6 +92,9 @@ export default function Admin({ menuList }) {
   }
   return (
     <>
+      <br />
+      <br />
+      <br />
       <h3>관리자 페이지</h3>
       <p>사용 메뉴얼 : 메뉴 조회 후 수정, 삭제 가능 * 아이디는 수정 안됨 </p>
       <form ref={form_info}>
