@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
-  console.log('modal', props);
+  // console.log('modal', props);
   const price = `${props.price}`;
   return (
     <li className={classes['cart-item']}>

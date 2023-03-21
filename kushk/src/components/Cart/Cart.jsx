@@ -3,15 +3,17 @@ import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
-import Payment from './Payment';
+
+import PayRequest from './PayRequest';
+
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
+  console.log('Cart의 props', props);
 
   const totalAmount = `${cartCtx.totalAmount}`;
   const hasItems = cartCtx.items.length > 0;
 
-  console.log('cartCtx.totalAmount', cartCtx.totalAmount);
   console.log('hasItems', hasItems);
 
   const cartItemRemoveHandler = (id) => {
@@ -67,7 +69,7 @@ const Cart = (props) => {
             주문
           </button>
         )}
-        {pay && <Payment />}
+        {pay && <PayRequest />}
         {/* 이주문버튼은 장바구니에 항목이 있는 경우에만 나타나도록 hasItem 만듦 */}
       </div>
     </Modal>

@@ -24,6 +24,7 @@ db.Sequelize = Sequelize;
 
 //정의한 모델 함수 실행하는 객체
 db.Menu = require('./Menu')(sequelize, Sequelize);
+db.Payment = require('./Payment')(sequelize, Sequelize);
 // 첫번째 인자는 정의된 모델을 받는 인자
 // 두번쨰 인자는 DataType 형태 받는 인자
 

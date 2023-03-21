@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -13,10 +13,6 @@ export default function Admin({ menuList }) {
   const form_info = useRef();
   const [state, updateState] = useState(false);
 
-  useEffect(() => {}, [state]);
-
-  // const forceUpdate = useCallback(() => updateState({}), []);
-  // console.log('rendering...');
 
   //'http://49.50.172.207:3001/addMenu'// http://localhost:3001/addMenu
   // 메뉴 추가
@@ -102,7 +98,6 @@ export default function Admin({ menuList }) {
       <StyledDiv>
         <h1>관리자 페이지</h1>
         <p>사용 메뉴얼 : 메뉴 조회 후 수정, 삭제 가능 * 아이디는 수정 안됨 </p>
-
         <form ref={form_info}>
           <StyledDiv>
             <StyledInput
