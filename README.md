@@ -42,7 +42,7 @@
 **React 로 SPA 구현**
 
 Redux & UseContext 사용 ⇒ 주문하기 누르면 장바구니 추가
-
+<br />
 
  **`장바구니`**
    
@@ -50,10 +50,12 @@ Redux & UseContext 사용 ⇒ 주문하기 누르면 장바구니 추가
 
 BootStrap, StyeledComponents 사용
    
+   <br />
 **`DB 관리자 페이지`**
- <img src="https://user-images.githubusercontent.com/116782319/226573602-c6c89351-3c02-48aa-b6fb-bbc607521809.png" width="500" align="center" />  
 
-Rest API 사용 ⇒ 메뉴 DB 관리
+ <img src="https://user-images.githubusercontent.com/116782319/226573602-c6c89351-3c02-48aa-b6fb-bbc607521809.png" width="500" align="center" />  
+   <br />
+   Rest API 사용 ⇒ 메뉴 DB 관리
 
 
    <br/>
