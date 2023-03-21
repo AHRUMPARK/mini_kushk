@@ -6,6 +6,8 @@
 
 **`Frontend`** 1명, **`Backend`** 1명
 
+<br />
+
 <img src="https://user-images.githubusercontent.com/116782319/226572885-6080c1c1-4b33-4e6c-9d52-9bc988fb9efe.png" width="500" align="center" />
 <h4>🔗demo <a href="http://49.50.172.207:3001/">mini_kushk/a></h4>
    
@@ -57,6 +59,7 @@ BootStrap, StyeledComponents 사용
 
  Rest API 사용 ⇒ 메뉴 DB 관리
    
+  <br />
  <img src="https://user-images.githubusercontent.com/116782319/226573602-c6c89351-3c02-48aa-b6fb-bbc607521809.png" width="500" align="center" />  
    <br />
 
