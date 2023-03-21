@@ -63,9 +63,13 @@ BootStrap, StyeledComponents 사용
 
 
    <br/>
-<h3>💡 추후 개발</h3>
+<h3>💡느낀점 & 추후 개발</h3>
 <hr />
 
+React의 여러 훅들을 써봐서 좋은 기회였고, React build 파일을 nginx를 이용해 배포하는 것이 어려웠다.
+   
+git 충돌 오류도 모아서 정리 했고, React의 spa의 매력을 느낄 수 있었다. 
+   
 아임포트 API 모듈만 연결해 놓고, 서버 통신을 구현
 
 결제하면 결제 DB에 데이터가 들어가도록 하는 것을 구현
