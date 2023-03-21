@@ -12,7 +12,7 @@ export default function MenuList() {
   // 메뉴 DB 조회 출력 컴포넌트
   useEffect(() => {
     axios
-      .get('http://localhost:3001/getMenuList')
+      .get('http://49.50.172.207:3001/getMenuList')
       .then((response) => {
         setMenuList(response.data);
       })
