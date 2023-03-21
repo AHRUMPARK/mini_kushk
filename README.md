@@ -36,19 +36,21 @@
 <h3>✒ 구현 기능</h3>
 <hr />
 
-**메인 페이지**
+   
+   **`메인 페이지`**
 
 **React 로 SPA 구현**
 
 Redux & UseContext 사용 ⇒ 주문하기 누르면 장바구니 추가
 
-   **장바구니**
+
+      **`장바구니`**
 
 `Import API 사용` ⇒ 결제 기능 구현
 
 BootStrap, StyeledComponents 사용
    
-   **DB 관리자 페이지**
+    **`DB 관리자 페이지`**
 
 Rest API 사용 ⇒ 메뉴 DB 관리
 
