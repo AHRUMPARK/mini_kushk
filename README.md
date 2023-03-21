@@ -6,7 +6,7 @@
 
 **`Frontend`** 1명, **`Backend`** 1명
 
-<img src="https://user-images.githubusercontent.com/116782319/226571479-f3607595-ef63-49c6-bb1d-b36db04f9ff8.png" width="500" align="center" />
+<img src="https://user-images.githubusercontent.com/116782319/226572885-6080c1c1-4b33-4e6c-9d52-9bc988fb9efe.png" width="500" align="center" />
 <h4>🔗demo <a href="http://49.50.172.207:3001/">mini_kushk/a></h4>
    
    <br/>
