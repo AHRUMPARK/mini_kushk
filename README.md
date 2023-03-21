@@ -2,9 +2,11 @@
 미니 키오스크 서비스
 
 
+**`진행기간`**  2023.01.26 ~ 2023.02.03
+
 **`Frontend`** 1명, **`Backend`** 1명
 
-<img src="https://user-images.githubusercontent.com/116782319/226551906-83f18a81-1479-4216-a392-4d926dfea8d6.jpg"  width="1000" align="center" />
+<img src="https://user-images.githubusercontent.com/116782319/226571136-6a8881a9-7d84-40e8-b6c7-6f16de2a9e6e.png" width="1000" align="center" />
 <h4>🔗demo <a href="http://49.50.172.207:3001/">mini_kushk/a></h4>
    
    <br/>
