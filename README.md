@@ -37,22 +37,21 @@
 <hr />
 
    
-   **`메인 페이지`**
+**`메인 페이지`**
 
 **React 로 SPA 구현**
 
 Redux & UseContext 사용 ⇒ 주문하기 누르면 장바구니 추가
 
 
-      **`장바구니`**
+ **`장바구니`**
    
-
 `Import API 사용` ⇒ 결제 기능 구현
 
 BootStrap, StyeledComponents 사용
    
-    **`DB 관리자 페이지`**
-   
+**`DB 관리자 페이지`**
+ <img src="https://user-images.githubusercontent.com/116782319/226573351-b4dc27b3-0dce-4ce4-9a30-5362ea523578.png" width="500" align="center" />  
 
 Rest API 사용 ⇒ 메뉴 DB 관리
 
