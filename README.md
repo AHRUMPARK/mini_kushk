@@ -51,7 +51,7 @@ Redux & UseContext 사용 ⇒ 주문하기 누르면 장바구니 추가
 BootStrap, StyeledComponents 사용
    
 **`DB 관리자 페이지`**
- <img src="https://user-images.githubusercontent.com/116782319/226573351-b4dc27b3-0dce-4ce4-9a30-5362ea523578.png" width="500" align="center" />  
+ <img src="https://user-images.githubusercontent.com/116782319/226573602-c6c89351-3c02-48aa-b6fb-bbc607521809.png" width="500" align="center" />  
 
 Rest API 사용 ⇒ 메뉴 DB 관리
 
